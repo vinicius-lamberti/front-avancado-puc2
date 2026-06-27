@@ -3,7 +3,6 @@ import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Container, Navbar, Nav, Button } from 'react-bootstrap';
 
 export const Layout: React.FC = () => {
-  // 1º Hook de Navegação: useLocation (Exigido) para mapear a URL atual
   const location = useLocation();
 
   const handleVoltarAoTopo = () => {

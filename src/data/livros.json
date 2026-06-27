@@ -1,0 +1,24 @@
+[
+  {
+    "id": "1",
+    "titulo": "O Hobbit",
+    "autor": "J. R. R. Tolkien",
+    "editora": "Harper Collins",
+    "isbn": "978-85-9508-474-2",
+    "ano": 2019,
+    "tipo": "livro",
+    "idioma": "portugues",
+    "lido": true
+  },
+  {
+    "id": "2",
+    "titulo": "Watchmen",
+    "autor": "Alan Moore",
+    "editora": "Panini",
+    "isbn": "978-85-7351-512-4",
+    "ano": 2009,
+    "tipo": "quadrinho",
+    "idioma": "portugues",
+    "lido": false
+  }
+]
