@@ -5,7 +5,7 @@ export interface Livro {
   editora: string;
   isbn: string;
   ano: number;
-  tipo: 'livro' | 'quadrinho' | 'rpg' | '';
-  idioma: 'portugues' | 'ingles' | 'espanhol' | '';
+  tipo: 'Livro' | 'Quadrinho' | 'RPG' | '';
+  idioma: 'Português' | 'Inglês' | 'Espanhol' | '';
   lido: boolean;
 }

@@ -16,15 +16,12 @@ export const Detalhes: React.FC<DetalhesProps> = ({ livros }) => {
 
   const livro = livros.find((l) => l.id === id);
 
-  // Tratativa caso o ID inserido manualmente na barra de endereços não exista
   if (!livro) {
     return (
       <div className="text-center py-5">
         <h2>Livro não encontrado!</h2>
         <p className="text-muted">O identificador fornecido não consta na base de dados.</p>
-        <Link to="/" className="btn btn-primary">
-          Voltar ao Início
-        </Link>
+        <Link to="/" className="btn btn-primary">Voltar ao Início</Link>
       </div>
     );
   }
@@ -34,24 +31,36 @@ export const Detalhes: React.FC<DetalhesProps> = ({ livros }) => {
       <PageHeader title={livro.titulo} subtitle={`Por ${livro.autor}`} />
       
       <InfoCard title="Ficha Técnica Completa">
-        <Row className="gy-4">
-          <Col xs={12} sm={6} md={3}>
+        <Row className="g-4">
+          
+          <Col xs={12} sm={6} md={4} lg={3}>
             <AttributeBadge label="Editora" value={livro.editora} bg="info" />
           </Col>
-          <Col xs={12} sm={6} md={3}>
-            <AttributeBadge label="ISBN" value={livro.isbn} bg="dark" />
+          
+          <Col xs={12} sm={6} md={4} lg={3}>
+            <div className="text-break">
+              <AttributeBadge label="ISBN" value={livro.isbn} bg="dark" />
+            </div>
           </Col>
-          <Col xs={12} sm={6} md={3}>
+          
+          <Col xs={12} sm={6} md={4} lg={2}>
             <AttributeBadge label="Ano" value={livro.ano} bg="warning" />
           </Col>
-          <Col xs={12} sm={6} md={3}>
+          
+          <Col xs={12} sm={6} md={4} lg={2}>
             <AttributeBadge label="Tipo" value={livro.tipo} bg="primary" />
           </Col>
-          <Col xs={12} sm={6} md={3}>
+          
+          <Col xs={12} sm={6} md={4} lg={2}>
             <AttributeBadge label="Idioma" value={livro.idioma} bg="secondary" />
           </Col>
-          <Col xs={12} sm={6} md={3}>
-            <AttributeBadge label="Status de Leitura" value={livro.lido ? 'Já Lido' : 'Não Lido'} bg={livro.lido ? 'success' : 'danger'} />
+          
+          <Col xs={12} sm={6} md={4} lg={12}>
+            <AttributeBadge 
+              label="Status de Leitura" 
+              value={livro.lido ? 'Já Lido' : 'Não Lido'} 
+              bg={livro.lido ? 'success' : 'danger'} 
+            />
           </Col>
         </Row>
         
