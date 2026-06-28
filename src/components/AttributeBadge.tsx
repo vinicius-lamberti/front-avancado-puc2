@@ -8,8 +8,20 @@ interface AttributeBadgeProps {
 }
 
 export const AttributeBadge: React.FC<AttributeBadgeProps> = ({ label, value, bg = "secondary" }) => (
-  <div className="mb-2">
-    <strong className="text-muted d-block small text-uppercase">{label}:</strong>
-    <Badge bg={bg} className="text-capitalize fs-6 px-3 py-2 mt-1">{value}</Badge>
+  <div className="mb-2 text-break w-100">
+    <strong className="text-muted d-block small text-uppercase" style={{ fontSize: '0.75rem' }}>
+      {label}:
+    </strong>
+    <Badge 
+      bg={bg} 
+      className="text-capitalize mt-1 d-block w-100 text-wrap py-2"
+      style={{ 
+        fontSize: '0.85rem', 
+        whiteSpace: 'normal', 
+        lineHeight: '1.2' 
+      }}
+    >
+      {value}
+    </Badge>
   </div>
 );

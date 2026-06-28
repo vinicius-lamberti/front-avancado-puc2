@@ -13,7 +13,6 @@ function App() {
   const [livros, setLivros] = useState<Livro[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
-  // useEffect (1º Hook exigido): Simula a requisição de busca (FETCH) ao montar o app
   useEffect(() => {
     const carregarDadosDoServidor = async () => {
       try {
@@ -30,7 +29,6 @@ function App() {
     carregarDadosDoServidor();
   }, []);
 
-  // Simulação de requisição POST
   const handleAdicionarLivro = async (novoLivro: Omit<Livro, 'id'>) => {
     try {
       const livroSalvo = await mockApi.adicionarLivro(novoLivro);
@@ -40,7 +38,6 @@ function App() {
     }
   };
 
-  // Simulação de requisição DELETE
   const handleExcluirLivro = async (id: string) => {
     try {
       const sucesso = await mockApi.excluirLivro(id);

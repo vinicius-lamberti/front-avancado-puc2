@@ -36,7 +36,7 @@ export const Cadastro: React.FC<CadastroProps> = ({ onAdicionarLivro }) => {
       [name]: type === 'checkbox' ? checked : value,
     }));
 
-    // Se o usuário estiver digitando no campo de ISBN, limpa o erro visual imediato
+
     if (name === 'isbn') {
       setErroIsbn('');
     }
@@ -78,14 +78,12 @@ export const Cadastro: React.FC<CadastroProps> = ({ onAdicionarLivro }) => {
       return;
     }
 
-    // 1. Funções de formatação comuns
     const formatarPrimeiraLetra = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 
     const tituloFormatado = formatarPrimeiraLetra(formData.titulo);
     const autorFormatado = formatarPrimeiraLetra(formData.autor);
     const editoraFormatado = formatarPrimeiraLetra(formData.editora);
 
-    // 2. Formatação do Tipo (Lendo do valor bruto do estado)
     let tipoFormatado: Livro['tipo'] = '';
     const tipoBruto = formatarPrimeiraLetra(formData.tipo);
     if (tipoBruto === 'Rpg') {
@@ -94,7 +92,6 @@ export const Cadastro: React.FC<CadastroProps> = ({ onAdicionarLivro }) => {
       tipoFormatado = tipoBruto;
     }
 
-    // 3. Formatação do Idioma (Ajustando com base no valor vindo das <option> do HTML)
     let idiomaFormatado: Livro['idioma'] = '';
     const idiomaBruto = String(formData.idioma); 
 
@@ -106,7 +103,6 @@ export const Cadastro: React.FC<CadastroProps> = ({ onAdicionarLivro }) => {
       idiomaFormatado = 'Espanhol';
     }
 
-    // Envia os dados tratados ao orquestrador
     onAdicionarLivro({
       titulo: tituloFormatado,
       autor: autorFormatado,
@@ -127,7 +123,7 @@ export const Cadastro: React.FC<CadastroProps> = ({ onAdicionarLivro }) => {
     <>
       <PageHeader title="Novo Registro" subtitle="Adicione mais um item à sua coleção" />
       <InfoCard title="Formulário de Cadastro">
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form data-testid="cadastro-form" noValidate validated={validated} onSubmit={handleSubmit}>
           <Row className="g-3">
             
             {/* Campo: Título */}
