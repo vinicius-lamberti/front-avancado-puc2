@@ -5,6 +5,15 @@ let bancoDados: Livro[] = [...dadosIniciais] as Livro[];
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
+const gerarProximoId = (): string => {
+  const idsNumericos = bancoDados
+    .map(livro => Number.parseInt(livro.id, 10))
+    .filter(id => Number.isInteger(id));
+
+  const maiorId = idsNumericos.length > 0 ? Math.max(...idsNumericos) : 0;
+  return String(maiorId + 1);
+};
+
 export const mockApi = {
   getLivros: async (): Promise<Livro[]> => {
     await delay(50);
@@ -15,7 +24,7 @@ export const mockApi = {
     await delay(50);
     const livroSalvo: Livro = {
       ...novoLivro,
-      id: crypto.randomUUID()
+      id: gerarProximoId()
     };
     bancoDados.push(livroSalvo);
     return livroSalvo;
